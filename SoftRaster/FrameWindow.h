@@ -9,6 +9,9 @@
 
 class FrameWindow {
 public:
+    FrameWindow(int width, int height);
+    ~FrameWindow();
+public:
     int width;
     int height;
 

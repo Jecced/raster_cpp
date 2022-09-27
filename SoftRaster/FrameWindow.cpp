@@ -2,18 +2,32 @@
 // Created by root on 2022/9/27.
 //
 
-#include "FrameWindow.h"
-
 #include <windows.h>
-#include <string.h>
 #include <tchar.h>
+#include <iostream>
+#include "FrameWindow.h"
 
 HINSTANCE hInst;
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
+int FrameWidth;
+int FrameHeight;
+
+FrameWindow::FrameWindow(int w, int h) {
+    width = w;
+    height = h;
+}
+
+FrameWindow::~FrameWindow() {
+    std::cout<<"~FrameWindow" <<std::endl;
+}
+
 int
 FrameWindow::run(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow) {
+
+    FrameWidth = width;
+    FrameHeight = height;
 
     WNDCLASSEX wcex;
 
@@ -60,7 +74,7 @@ FrameWindow::run(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In
             WS_OVERLAPPEDWINDOW,
             CW_USEDEFAULT,
             CW_USEDEFAULT,
-            width, height,
+            FrameWidth, FrameHeight,
             NULL, NULL,
             hInstance, NULL
     );
@@ -101,26 +115,60 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
     HDC hdc;
     TCHAR greeting[] = _T("Hello, Windows desktop!");
 
+    //双缓冲绘图
+    static BITMAPINFO s_bitmapInfo;
+    static HDC s_hdcBackbuffer;            //后缓冲设备句柄
+    static HBITMAP s_hBitmap;
+    static HBITMAP s_hOldBitmap;
+    static void *s_pData;
+
     switch (message) {
-        case WM_PAINT:
+
+        case WM_CREATE: {
+            //初始化设备无关位图header
+            BITMAPINFOHEADER bmphdr = {0};
+            bmphdr.biSize = sizeof(BITMAPINFOHEADER);
+            bmphdr.biWidth = FrameWidth;
+            bmphdr.biHeight = -FrameHeight;
+            bmphdr.biPlanes = 1;
+            bmphdr.biBitCount = 32;
+            bmphdr.biSizeImage = FrameWidth * FrameHeight * 4;
+            //创建后缓冲区
+            //先创建一个内存dc
+            s_hdcBackbuffer = CreateCompatibleDC(nullptr);
+            //获得前置缓冲区dc
+            HDC hdc = GetDC(hWnd);
+            if (!(s_hBitmap = CreateDIBSection(nullptr, (PBITMAPINFO) &bmphdr, DIB_RGB_COLORS,
+//                                               reinterpret_cast<void **>(&g_pBoxDemo->GetDevice()->GetFrameBuffer()),
+                                               nullptr,
+                                               nullptr, 0))) {
+                MessageBox(nullptr, "create dib section failed!", "error", MB_OK);
+                return 0;
+            }
+            //将bitmap装入内存dc
+            s_hOldBitmap = (HBITMAP) SelectObject(s_hdcBackbuffer, s_hBitmap);
+            //释放dc
+            ReleaseDC(hWnd, hdc);
+            break;
+        }
+        case WM_PAINT: {
             hdc = BeginPaint(hWnd, &ps);
-
-            // Here your application is laid out.
-            // For this introduction, we just print out "Hello, Windows desktop!"
-            // in the top left corner.
-            TextOut(hdc,
-                    5, 100,
-                    greeting, _tcslen(greeting));
-            // End application-specific layout section.
-
+            //把backbuffer内容传到frontbuffer
+            BitBlt(ps.hdc, 0, 0, FrameWidth, FrameHeight, s_hdcBackbuffer, 0, 0, SRCCOPY);
             EndPaint(hWnd, &ps);
             break;
-        case WM_DESTROY:
+        }
+        case WM_DESTROY: {
+            SelectObject(s_hdcBackbuffer, s_hOldBitmap);
+            DeleteDC(s_hdcBackbuffer);
+            DeleteObject(s_hOldBitmap);
             PostQuitMessage(0);
             break;
-        default:
+        }
+        default: {
             return DefWindowProc(hWnd, message, wParam, lParam);
             break;
+        }
     }
 
     return 0;
