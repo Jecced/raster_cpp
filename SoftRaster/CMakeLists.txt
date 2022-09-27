@@ -3,4 +3,4 @@ project(SoftRaster)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(SoftRaster main.cpp)
+add_executable(SoftRaster main.cpp FrameWindow.cpp FrameWindow.h)
