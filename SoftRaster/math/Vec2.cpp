@@ -46,7 +46,7 @@ void Vec2::reverse() {
 void Vec2::normalized() {
     float len = x * x + y * y;
     if (len > 0) {
-        len = 1 / sqrt(len);
+        len = 1 / std::sqrt(len);
     }
     x *= len;
     y *= len;
