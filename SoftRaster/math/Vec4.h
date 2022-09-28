@@ -32,6 +32,11 @@ public:
     Vec4 operator-(const Vec4& o) const;
     Vec4 operator*(const Vec4& o) const;
     Vec4 operator/(const Vec4& o) const;
+
+    Vec4 operator+(float v) const;
+    Vec4 operator-(float v) const;
+    Vec4 operator*(float v) const;
+    Vec4 operator/(float v) const;
     
 };
 

@@ -30,6 +30,11 @@ public:
     Vec3 operator-(const Vec3& o) const;
     Vec3 operator*(const Vec3& o) const;
     Vec3 operator/(const Vec3& o) const;
+
+    Vec3 operator+(float v) const;
+    Vec3 operator-(float v) const;
+    Vec3 operator*(float v) const;
+    Vec3 operator/(float v) const;
 };
 
 

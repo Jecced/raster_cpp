@@ -107,3 +107,39 @@ Vec4 Vec4::operator/(const Vec4 &o) const {
     out.w = this->w / o.w;
     return out;
 }
+
+Vec4 Vec4::operator+(float v) const {
+    Vec4 out;
+    out.x = this->x + v;
+    out.y = this->y + v;
+    out.z = this->z + v;
+    out.w = this->w + v;
+    return out;
+}
+
+Vec4 Vec4::operator-(float v) const {
+    Vec4 out;
+    out.x = this->x - v;
+    out.y = this->y - v;
+    out.z = this->z - v;
+    out.w = this->w - v;
+    return out;
+}
+
+Vec4 Vec4::operator*(float v) const {
+    Vec4 out;
+    out.x = this->x * v;
+    out.y = this->y * v;
+    out.z = this->z * v;
+    out.w = this->w * v;
+    return out;
+}
+
+Vec4 Vec4::operator/(float v) const {
+    Vec4 out;
+    out.x = this->x / v;
+    out.y = this->y / v;
+    out.z = this->z / v;
+    out.w = this->w / v;
+    return out;
+}

@@ -84,3 +84,32 @@ Vec2 Vec2::operator/(const Vec2 &o) const {
     out.y = this->y / o.y;
     return out;
 }
+
+
+Vec2 Vec2::operator+(float v) const {
+    Vec2 out;
+    out.x = this->x + v;
+    out.y = this->y + v;
+    return out;
+}
+
+Vec2 Vec2::operator-(float v) const {
+    Vec2 out;
+    out.x = this->x - v;
+    out.y = this->y - v;
+    return out;
+}
+
+Vec2 Vec2::operator*(float v) const {
+    Vec2 out;
+    out.x = this->x * v;
+    out.y = this->y * v;
+    return out;
+}
+
+Vec2 Vec2::operator/(float v) const {
+    Vec2 out;
+    out.x = this->x / v;
+    out.y = this->y / v;
+    return out;
+}

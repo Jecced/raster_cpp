@@ -30,6 +30,11 @@ public:
     Vec2 operator-(const Vec2& o) const;
     Vec2 operator*(const Vec2& o) const;
     Vec2 operator/(const Vec2& o) const;
+
+    Vec2 operator+(float v) const;
+    Vec2 operator-(float v) const;
+    Vec2 operator*(float v) const;
+    Vec2 operator/(float v) const;
 };
 
 
