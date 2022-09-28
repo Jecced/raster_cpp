@@ -17,14 +17,19 @@ public:
     float y;
 
     void set(float x, float y);
-    void set(Vec2 other);
+    void set(const Vec2& other);
 
     void scale(float scale);
-    bool isZero();
+    bool isZero() const;
     void reverse();
     void normalized();
 
-    Vec2 clone();
+    Vec2 clone() const;
+
+    Vec2 operator+(const Vec2& o) const;
+    Vec2 operator-(const Vec2& o) const;
+    Vec2 operator*(const Vec2& o) const;
+    Vec2 operator/(const Vec2& o) const;
 };
 
 
