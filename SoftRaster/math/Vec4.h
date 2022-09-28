@@ -9,21 +9,29 @@
 class Vec4 {
 public:
     Vec4(float x, float y, float z, float w);
+    Vec4();
+    ~Vec4();
+
 public:
     float x;
     float y;
     float z;
     float w;
 
-    float r;
-    float g;
-    float b;
-    float a;
-
     void set(float x, float y, float z, float w);
+    void set(const Vec4& other);
 
-    void fromVec4(Vec4 other);
+    void scale(float scale);
+    bool isZero() const;
+    void reverse();
+    void normalized();
 
+    Vec4 clone() const;
+
+    Vec4 operator+(const Vec4& o) const;
+    Vec4 operator-(const Vec4& o) const;
+    Vec4 operator*(const Vec4& o) const;
+    Vec4 operator/(const Vec4& o) const;
     
 };
 
