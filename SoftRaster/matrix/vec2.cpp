@@ -51,8 +51,8 @@ void Vec2::normalized() {
     y *= len;
 }
 
-Vec2 Vec2::clone() const {
-    Vec2 o = Vec2(this->x, this->y);
+Vec2* Vec2::clone() const {
+    Vec2* o = new Vec2(this->x, this->y);
     return o;
 }
 

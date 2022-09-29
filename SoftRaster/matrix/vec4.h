@@ -26,7 +26,7 @@ public:
     void reverse();
     void normalized();
 
-    Vec4 clone() const;
+    Vec4* clone() const;
 
     Vec4* operator+(const Vec4& o) const;
     Vec4* operator-(const Vec4& o) const;

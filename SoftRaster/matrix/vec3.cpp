@@ -57,8 +57,8 @@ void Vec3::normalized() {
     z *= len;
 }
 
-Vec3 Vec3::clone() const {
-    Vec3 o = Vec3(this->x, this->y, this->z);
+Vec3* Vec3::clone() const {
+    Vec3* o = new Vec3(this->x, this->y, this->z);
     return o;
 }
 

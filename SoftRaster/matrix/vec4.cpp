@@ -65,8 +65,8 @@ void Vec4::normalized() {
     w *= len;
 }
 
-Vec4 Vec4::clone() const {
-    Vec4 o = Vec4(this->x, this->y, this->z, this->w);
+Vec4* Vec4::clone() const {
+    Vec4* o = new Vec4(this->x, this->y, this->z, this->w);
     return o;
 }
 
