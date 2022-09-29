@@ -38,12 +38,12 @@ void Mat2::transpose() {
     data[2] = temp;
 }
 
-Mat2 Mat2::clone() {
-    Mat2 mat = *new Mat2();
-    mat.data[0] = this->data[0];
-    mat.data[1] = this->data[1];
-    mat.data[2] = this->data[2];
-    mat.data[3] = this->data[3];
+Mat2* Mat2::clone() {
+    Mat2* mat = new Mat2();
+    mat->data[0] = this->data[0];
+    mat->data[1] = this->data[1];
+    mat->data[2] = this->data[2];
+    mat->data[3] = this->data[3];
     return mat;
 }
 

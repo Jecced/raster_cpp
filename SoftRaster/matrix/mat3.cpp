@@ -59,17 +59,17 @@ void Mat3::transpose() {
     data[7] = a05;
 }
 
-Mat3 Mat3::clone() {
-    Mat3 mat = *new Mat3();
-    mat.data[0] = this->data[0];
-    mat.data[1] = this->data[1];
-    mat.data[2] = this->data[2];
-    mat.data[3] = this->data[3];
-    mat.data[4] = this->data[4];
-    mat.data[5] = this->data[5];
-    mat.data[6] = this->data[6];
-    mat.data[7] = this->data[7];
-    mat.data[8] = this->data[8];
+Mat3* Mat3::clone() {
+    Mat3* mat = new Mat3();
+    mat->data[0] = this->data[0];
+    mat->data[1] = this->data[1];
+    mat->data[2] = this->data[2];
+    mat->data[3] = this->data[3];
+    mat->data[4] = this->data[4];
+    mat->data[5] = this->data[5];
+    mat->data[6] = this->data[6];
+    mat->data[7] = this->data[7];
+    mat->data[8] = this->data[8];
     return mat;
 }
 
