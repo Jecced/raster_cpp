@@ -56,60 +56,60 @@ Vec2 Vec2::clone() const {
     return o;
 }
 
-Vec2 Vec2::operator+(const Vec2 &o) const {
-    Vec2 out;
-    out.x = this->x + o.x;
-    out.y = this->y + o.y;
+Vec2* Vec2::operator+(const Vec2 &o) const {
+    Vec2* out = new Vec2();
+    out->x = this->x + o.x;
+    out->y = this->y + o.y;
     return out;
 }
 
-Vec2 Vec2::operator-(const Vec2 &o) const {
-    Vec2 out;
-    out.x = this->x - o.x;
-    out.y = this->y - o.y;
+Vec2* Vec2::operator-(const Vec2 &o) const {
+    Vec2* out = new Vec2();
+    out->x = this->x - o.x;
+    out->y = this->y - o.y;
     return out;
 }
 
-Vec2 Vec2::operator*(const Vec2 &o) const {
-    Vec2 out;
-    out.x = this->x * o.x;
-    out.y = this->y * o.y;
+Vec2* Vec2::operator*(const Vec2 &o) const {
+    Vec2* out = new Vec2();
+    out->x = this->x * o.x;
+    out->y = this->y * o.y;
     return out;
 }
 
-Vec2 Vec2::operator/(const Vec2 &o) const {
-    Vec2 out;
-    out.x = this->x / o.x;
-    out.y = this->y / o.y;
+Vec2* Vec2::operator/(const Vec2 &o) const {
+    Vec2* out = new Vec2();
+    out->x = this->x / o.x;
+    out->y = this->y / o.y;
     return out;
 }
 
 
-Vec2 Vec2::operator+(float v) const {
-    Vec2 out;
-    out.x = this->x + v;
-    out.y = this->y + v;
+Vec2* Vec2::operator+(float v) const {
+    Vec2* out = new Vec2();
+    out->x = this->x + v;
+    out->y = this->y + v;
     return out;
 }
 
-Vec2 Vec2::operator-(float v) const {
-    Vec2 out;
-    out.x = this->x - v;
-    out.y = this->y - v;
+Vec2* Vec2::operator-(float v) const {
+    Vec2* out = new Vec2();
+    out->x = this->x - v;
+    out->y = this->y - v;
     return out;
 }
 
-Vec2 Vec2::operator*(float v) const {
-    Vec2 out;
-    out.x = this->x * v;
-    out.y = this->y * v;
+Vec2* Vec2::operator*(float v) const {
+    Vec2* out = new Vec2();
+    out->x = this->x * v;
+    out->y = this->y * v;
     return out;
 }
 
-Vec2 Vec2::operator/(float v) const {
-    Vec2 out;
-    out.x = this->x / v;
-    out.y = this->y / v;
+Vec2* Vec2::operator/(float v) const {
+    Vec2* out = new Vec2();
+    out->x = this->x / v;
+    out->y = this->y / v;
     return out;
 }
 

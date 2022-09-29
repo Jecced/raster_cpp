@@ -26,15 +26,15 @@ public:
 
     Vec3 clone() const;
 
-    Vec3 operator+(const Vec3& o) const;
-    Vec3 operator-(const Vec3& o) const;
-    Vec3 operator*(const Vec3& o) const;
-    Vec3 operator/(const Vec3& o) const;
+    Vec3* operator+(const Vec3& o) const;
+    Vec3* operator-(const Vec3& o) const;
+    Vec3* operator*(const Vec3& o) const;
+    Vec3* operator/(const Vec3& o) const;
 
-    Vec3 operator+(float v) const;
-    Vec3 operator-(float v) const;
-    Vec3 operator*(float v) const;
-    Vec3 operator/(float v) const;
+    Vec3* operator+(float v) const;
+    Vec3* operator-(float v) const;
+    Vec3* operator*(float v) const;
+    Vec3* operator/(float v) const;
 
     std::string toString() const;
 };

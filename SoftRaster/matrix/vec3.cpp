@@ -62,68 +62,68 @@ Vec3 Vec3::clone() const {
     return o;
 }
 
-Vec3 Vec3::operator+(const Vec3 &o) const {
-    Vec3 out;
-    out.x = this->x + o.x;
-    out.y = this->y + o.y;
-    out.z = this->z + o.z;
+Vec3* Vec3::operator+(const Vec3 &o) const {
+    Vec3* out = new Vec3();
+    out->x = this->x + o.x;
+    out->y = this->y + o.y;
+    out->z = this->z + o.z;
     return out;
 }
 
-Vec3 Vec3::operator-(const Vec3 &o) const {
-    Vec3 out;
-    out.x = this->x - o.x;
-    out.y = this->y - o.y;
-    out.z = this->z - o.z;
+Vec3* Vec3::operator-(const Vec3 &o) const {
+    Vec3* out = new Vec3();
+    out->x = this->x - o.x;
+    out->y = this->y - o.y;
+    out->z = this->z - o.z;
     return out;
 }
 
-Vec3 Vec3::operator*(const Vec3 &o) const {
-    Vec3 out;
-    out.x = this->x * o.x;
-    out.y = this->y * o.y;
-    out.z = this->z * o.z;
+Vec3* Vec3::operator*(const Vec3 &o) const {
+    Vec3* out = new Vec3();
+    out->x = this->x * o.x;
+    out->y = this->y * o.y;
+    out->z = this->z * o.z;
     return out;
 }
 
-Vec3 Vec3::operator/(const Vec3 &o) const {
-    Vec3 out;
-    out.x = this->x / o.x;
-    out.y = this->y / o.y;
-    out.z = this->z / o.z;
+Vec3* Vec3::operator/(const Vec3 &o) const {
+    Vec3* out = new Vec3();
+    out->x = this->x / o.x;
+    out->y = this->y / o.y;
+    out->z = this->z / o.z;
     return out;
 }
 
 
-Vec3 Vec3::operator+(float v) const {
-    Vec3 out;
-    out.x = this->x + v;
-    out.y = this->y + v;
-    out.z = this->z + v;
+Vec3* Vec3::operator+(float v) const {
+    Vec3* out = new Vec3();
+    out->x = this->x + v;
+    out->y = this->y + v;
+    out->z = this->z + v;
     return out;
 }
 
-Vec3 Vec3::operator-(float v) const {
-    Vec3 out;
-    out.x = this->x - v;
-    out.y = this->y - v;
-    out.z = this->z - v;
+Vec3* Vec3::operator-(float v) const {
+    Vec3* out = new Vec3();
+    out->x = this->x - v;
+    out->y = this->y - v;
+    out->z = this->z - v;
     return out;
 }
 
-Vec3 Vec3::operator*(float v) const {
-    Vec3 out;
-    out.x = this->x * v;
-    out.y = this->y * v;
-    out.z = this->z * v;
+Vec3* Vec3::operator*(float v) const {
+    Vec3* out = new Vec3();
+    out->x = this->x * v;
+    out->y = this->y * v;
+    out->z = this->z * v;
     return out;
 }
 
-Vec3 Vec3::operator/(float v) const {
-    Vec3 out;
-    out.x = this->x / v;
-    out.y = this->y / v;
-    out.z = this->z / v;
+Vec3* Vec3::operator/(float v) const {
+    Vec3* out = new Vec3();
+    out->x = this->x / v;
+    out->y = this->y / v;
+    out->z = this->z / v;
     return out;
 }
 

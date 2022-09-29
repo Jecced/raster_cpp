@@ -28,15 +28,15 @@ public:
 
     Vec4 clone() const;
 
-    Vec4 operator+(const Vec4& o) const;
-    Vec4 operator-(const Vec4& o) const;
-    Vec4 operator*(const Vec4& o) const;
-    Vec4 operator/(const Vec4& o) const;
+    Vec4* operator+(const Vec4& o) const;
+    Vec4* operator-(const Vec4& o) const;
+    Vec4* operator*(const Vec4& o) const;
+    Vec4* operator/(const Vec4& o) const;
 
-    Vec4 operator+(float v) const;
-    Vec4 operator-(float v) const;
-    Vec4 operator*(float v) const;
-    Vec4 operator/(float v) const;
+    Vec4* operator+(float v) const;
+    Vec4* operator-(float v) const;
+    Vec4* operator*(float v) const;
+    Vec4* operator/(float v) const;
 
     std::string toString() const;
 };

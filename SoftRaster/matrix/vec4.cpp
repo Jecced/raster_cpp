@@ -70,75 +70,75 @@ Vec4 Vec4::clone() const {
     return o;
 }
 
-Vec4 Vec4::operator+(const Vec4 &o) const {
-    Vec4 out;
-    out.x = this->x + o.x;
-    out.y = this->y + o.y;
-    out.z = this->z + o.z;
-    out.w = this->w + o.w;
+Vec4* Vec4::operator+(const Vec4 &o) const {
+    Vec4* out = new Vec4();
+    out->x = this->x + o.x;
+    out->y = this->y + o.y;
+    out->z = this->z + o.z;
+    out->w = this->w + o.w;
     return out;
 }
 
-Vec4 Vec4::operator-(const Vec4 &o) const {
-    Vec4 out;
-    out.x = this->x - o.x;
-    out.y = this->y - o.y;
-    out.z = this->z - o.z;
-    out.w = this->w - o.w;
+Vec4* Vec4::operator-(const Vec4 &o) const {
+    Vec4* out = new Vec4();
+    out->x = this->x - o.x;
+    out->y = this->y - o.y;
+    out->z = this->z - o.z;
+    out->w = this->w - o.w;
     return out;
 }
 
-Vec4 Vec4::operator*(const Vec4 &o) const {
-    Vec4 out;
-    out.x = this->x * o.x;
-    out.y = this->y * o.y;
-    out.z = this->z * o.z;
-    out.w = this->w * o.w;
+Vec4* Vec4::operator*(const Vec4 &o) const {
+    Vec4* out = new Vec4();
+    out->x = this->x * o.x;
+    out->y = this->y * o.y;
+    out->z = this->z * o.z;
+    out->w = this->w * o.w;
     return out;
 }
 
-Vec4 Vec4::operator/(const Vec4 &o) const {
-    Vec4 out;
-    out.x = this->x / o.x;
-    out.y = this->y / o.y;
-    out.z = this->z / o.z;
-    out.w = this->w / o.w;
+Vec4* Vec4::operator/(const Vec4 &o) const {
+    Vec4* out = new Vec4();
+    out->x = this->x / o.x;
+    out->y = this->y / o.y;
+    out->z = this->z / o.z;
+    out->w = this->w / o.w;
     return out;
 }
 
-Vec4 Vec4::operator+(float v) const {
-    Vec4 out;
-    out.x = this->x + v;
-    out.y = this->y + v;
-    out.z = this->z + v;
-    out.w = this->w + v;
+Vec4* Vec4::operator+(float v) const {
+    Vec4* out = new Vec4();
+    out->x = this->x + v;
+    out->y = this->y + v;
+    out->z = this->z + v;
+    out->w = this->w + v;
     return out;
 }
 
-Vec4 Vec4::operator-(float v) const {
-    Vec4 out;
-    out.x = this->x - v;
-    out.y = this->y - v;
-    out.z = this->z - v;
-    out.w = this->w - v;
+Vec4* Vec4::operator-(float v) const {
+    Vec4* out = new Vec4();
+    out->x = this->x - v;
+    out->y = this->y - v;
+    out->z = this->z - v;
+    out->w = this->w - v;
     return out;
 }
 
-Vec4 Vec4::operator*(float v) const {
-    Vec4 out;
-    out.x = this->x * v;
-    out.y = this->y * v;
-    out.z = this->z * v;
-    out.w = this->w * v;
+Vec4* Vec4::operator*(float v) const {
+    Vec4* out = new Vec4();
+    out->x = this->x * v;
+    out->y = this->y * v;
+    out->z = this->z * v;
+    out->w = this->w * v;
     return out;
 }
 
-Vec4 Vec4::operator/(float v) const {
-    Vec4 out;
-    out.x = this->x / v;
-    out.y = this->y / v;
-    out.z = this->z / v;
-    out.w = this->w / v;
+Vec4* Vec4::operator/(float v) const {
+    Vec4* out = new Vec4();
+    out->x = this->x / v;
+    out->y = this->y / v;
+    out->z = this->z / v;
+    out->w = this->w / v;
     return out;
 }
 
