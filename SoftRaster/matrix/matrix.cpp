@@ -24,21 +24,21 @@ Vec3 * cross(const Vec3 &a, const Vec3 &b) {
     return o;
 }
 
-Vec2 normalize(const Vec2& v){
-    auto o = v.clone();
-    o.normalized();
+Vec2* normalize(const Vec2& v){
+    Vec2* o = v.clone();
+    o->normalized();
     return o;
 }
 
-Vec3 normalize(const Vec3& v){
-    auto o = v.clone();
-    o.normalized();
+Vec3* normalize(const Vec3& v){
+    Vec3* o = v.clone();
+    o->normalized();
     return o;
 }
 
-Vec4 normalize(const Vec4& v){
-    auto o = v.clone();
-    o.normalized();
+Vec4* normalize(const Vec4& v){
+    Vec4* o = v.clone();
+    o->normalized();
     return o;
 }
 

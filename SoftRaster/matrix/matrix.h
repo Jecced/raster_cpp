@@ -19,9 +19,9 @@ float cross(float x1, float y1, float x2, float y2);
 float cross(const Vec2 &a, const Vec2 &b);
 Vec3 * cross(const Vec3 &a, const Vec3 &b);
 
-Vec2 normalize(const Vec2& v);
-Vec3 normalize(const Vec3& v);
-Vec4 normalize(const Vec4& v);
+Vec2* normalize(const Vec2& v);
+Vec3* normalize(const Vec3& v);
+Vec4* normalize(const Vec4& v);
 
 float dot(const Vec2& a, const Vec2& b);
 float dot(const Vec3& a, const Vec3& b);
