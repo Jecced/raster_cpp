@@ -51,3 +51,24 @@ std::string Mat2::toString() {
     return "mat2(\n  " + std::to_string(data[0]) + ", " + std::to_string(data[1]) + "\n  " + std::to_string(data[2]) +
            ", " + std::to_string(data[3]) + ")";
 }
+
+Mat2* Mat2::operator*(const Mat2 &a) const {
+    Mat2 *out = new Mat2();
+
+    // this -> 行, a -> 列
+    out->set(0, this->data[0] * a.data[0] + this->data[1] * a.data[2]);
+    out->set(1, this->data[0] * a.data[1] + this->data[1] * a.data[3]);
+
+    out->set(2, this->data[2] * a.data[0] + this->data[3] * a.data[2]);
+    out->set(3, this->data[2] * a.data[1] + this->data[3] * a.data[3]);
+
+    return out;
+}
+
+Vec2* Mat2::operator*(const Vec2 &a) const {
+    Vec2 *out = new Vec2(
+            this->data[0] * a.x + this->data[1] * a.y,
+            this->data[2] * a.x + this->data[3] * a.y
+    );
+    return out;
+}

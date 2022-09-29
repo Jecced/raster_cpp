@@ -6,6 +6,8 @@
 #define SOFTRASTER_MAT3_H
 
 
+#include "vec3.h"
+
 class Mat3 {
 public:
     Mat3();
@@ -21,6 +23,9 @@ public:
     Mat3* clone();
 
     std::string toString();
+
+    Mat3* operator*(const Mat3& v) const;
+    Vec3* operator*(const Vec3& v) const;
 };
 
 

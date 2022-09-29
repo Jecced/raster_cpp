@@ -4,6 +4,7 @@
 
 #include <string>
 #include "mat3.h"
+#include "vec3.h"
 
 
 Mat3::Mat3() {
@@ -59,8 +60,8 @@ void Mat3::transpose() {
     data[7] = a05;
 }
 
-Mat3* Mat3::clone() {
-    Mat3* mat = new Mat3();
+Mat3 *Mat3::clone() {
+    Mat3 *mat = new Mat3();
     mat->data[0] = this->data[0];
     mat->data[1] = this->data[1];
     mat->data[2] = this->data[2];
@@ -79,4 +80,32 @@ std::string Mat3::toString() {
            std::to_string(data[3]) + ", " + std::to_string(data[4]) + std::to_string(data[5]) + "\n  " +
            std::to_string(data[6]) + ", " + std::to_string(data[7]) + std::to_string(data[8]) + "\n  " +
            ")";
+}
+
+Mat3 *Mat3::operator*(const Mat3 &a) const {
+    Mat3 *out = new Mat3();
+
+    // this -> 行, a -> 列
+    out->set(0, this->data[0] * a.data[0] + this->data[1] * a.data[3] + this->data[2] * a.data[6]);
+    out->set(1, this->data[0] * a.data[1] + this->data[1] * a.data[4] + this->data[2] * a.data[7]);
+    out->set(2, this->data[0] * a.data[2] + this->data[1] * a.data[5] + this->data[2] * a.data[8]);
+
+    out->set(3, this->data[3] * a.data[0] + this->data[4] * a.data[3] + this->data[5] * a.data[6]);
+    out->set(4, this->data[3] * a.data[1] + this->data[4] * a.data[4] + this->data[5] * a.data[7]);
+    out->set(5, this->data[3] * a.data[2] + this->data[4] * a.data[5] + this->data[5] * a.data[8]);
+
+    out->set(6, this->data[6] * a.data[0] + this->data[7] * a.data[3] + this->data[8] * a.data[6]);
+    out->set(7, this->data[6] * a.data[1] + this->data[7] * a.data[4] + this->data[8] * a.data[7]);
+    out->set(8, this->data[6] * a.data[2] + this->data[7] * a.data[5] + this->data[8] * a.data[8]);
+
+    return out;
+}
+
+Vec3 *Mat3::operator*(const Vec3 &a) const {
+    Vec3 *out = new Vec3(
+            this->data[0] * a.x + this->data[1] * a.y + this->data[2] * a.z,
+            this->data[3] * a.x + this->data[4] * a.y + this->data[5] * a.z,
+            this->data[6] * a.x + this->data[7] * a.y + this->data[8] * a.z
+    );
+    return out;
 }

@@ -120,3 +120,40 @@ std::string Mat4::toString() {
            std::to_string(data[15]) + "\n  " +
            ")";
 }
+
+Mat4 *Mat4::operator*(const Mat4 &a) const {
+    Mat4 *out = new Mat4();
+
+    // this -> 行, a -> 列
+    out->set(0, this->data[0] * a.data[0] + this->data[1] * a.data[4] + this->data[2] * a.data[8] + this->data[3] * a.data[12]);
+    out->set(1, this->data[0] * a.data[1] + this->data[1] * a.data[5] + this->data[2] * a.data[9] + this->data[3] * a.data[13]);
+    out->set(2, this->data[0] * a.data[2] + this->data[1] * a.data[6] + this->data[2] * a.data[10] + this->data[3] * a.data[14]);
+    out->set(3, this->data[0] * a.data[3] + this->data[1] * a.data[7] + this->data[2] * a.data[11] + this->data[3] * a.data[15]);
+
+    out->set(4, this->data[4] * a.data[0] + this->data[5] * a.data[4] + this->data[6] * a.data[8] + this->data[7] * a.data[12]);
+    out->set(5, this->data[4] * a.data[1] + this->data[5] * a.data[5] + this->data[6] * a.data[9] + this->data[7] * a.data[13]);
+    out->set(6, this->data[4] * a.data[2] + this->data[5] * a.data[6] + this->data[6] * a.data[10] + this->data[7] * a.data[14]);
+    out->set(7, this->data[4] * a.data[3] + this->data[5] * a.data[7] + this->data[6] * a.data[11] + this->data[7] * a.data[15]);
+
+    out->set(8, this->data[8] * a.data[0] + this->data[9] * a.data[4] + this->data[10] * a.data[8] + this->data[11] * a.data[12]);
+    out->set(9, this->data[8] * a.data[1] + this->data[9] * a.data[5] + this->data[10] * a.data[9] + this->data[11] * a.data[13]);
+    out->set(10, this->data[8] * a.data[2] + this->data[9] * a.data[6] + this->data[10] * a.data[10] + this->data[11] * a.data[14]);
+    out->set(11, this->data[8] * a.data[3] + this->data[9] * a.data[7] + this->data[10] * a.data[11] + this->data[11] * a.data[15]);
+
+    out->set(12, this->data[12] * a.data[0] + this->data[13] * a.data[4] + this->data[14] * a.data[8] + this->data[15] * a.data[12]);
+    out->set(13, this->data[12] * a.data[1] + this->data[13] * a.data[5] + this->data[14] * a.data[9] + this->data[15] * a.data[13]);
+    out->set(14, this->data[12] * a.data[2] + this->data[13] * a.data[6] + this->data[14] * a.data[10] + this->data[15] * a.data[14]);
+    out->set(15, this->data[12] * a.data[3] + this->data[13] * a.data[7] + this->data[14] * a.data[11] + this->data[15] * a.data[15]);
+
+    return out;
+}
+
+Vec4 *Mat4::operator*(const Vec4 &a) const {
+    Vec4 *out = new Vec4(
+            this->data[0] * a.x + this->data[1] * a.y + this->data[2] * a.z + this->data[3] * a.w,
+            this->data[4] * a.x + this->data[5] * a.y + this->data[6] * a.z + this->data[7] * a.w,
+            this->data[8] * a.x + this->data[9] * a.y + this->data[10] * a.z + this->data[11] * a.w,
+            this->data[12] * a.x + this->data[13] * a.y + this->data[14] * a.z + this->data[15] * a.w
+    );
+    return out;
+}

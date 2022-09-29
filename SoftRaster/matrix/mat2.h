@@ -6,6 +6,8 @@
 #define SOFTRASTER_MAT2_H
 
 
+#include "vec2.h"
+
 class Mat2 {
 public:
     Mat2();
@@ -21,6 +23,9 @@ public:
     Mat2* clone();
 
     std::string toString();
+
+    Mat2* operator*(const Mat2& v) const;
+    Vec2* operator*(const Vec2& v) const;
 };
 
 
