@@ -1,7 +1,7 @@
 //
 // Created by Admin on 2022/9/28.
 //
-
+#include <string>
 #include <cmath>
 #include "Vec2.h"
 
@@ -10,18 +10,17 @@ Vec2::Vec2() {
     y = 0;
 }
 
-Vec2::Vec2(float mx, float my) {
-    x = mx;
-    y = my;
+Vec2::Vec2(float x, float y) {
+    this->set(x, y);
 }
 
 Vec2::~Vec2() {
 
 }
 
-void Vec2::set(float mx, float my) {
-    x = mx;
-    y = my;
+void Vec2::set(float x, float y) {
+    this->x = x;
+    this->y = y;
 }
 
 void Vec2::set(const Vec2 &other) {
@@ -34,7 +33,7 @@ void Vec2::scale(float scale) {
     y *= scale;
 }
 
-bool Vec2::isZero() const {
+inline bool Vec2::isZero() const {
     return x == 0 && y == 0;
 }
 
@@ -112,4 +111,8 @@ Vec2 Vec2::operator/(float v) const {
     out.x = this->x / v;
     out.y = this->y / v;
     return out;
+}
+
+std::string Vec2::toString() const {
+    return "vec2(" + std::to_string(x) + ", " + std::to_string(y) + ")";
 }

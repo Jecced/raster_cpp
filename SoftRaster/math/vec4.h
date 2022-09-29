@@ -37,7 +37,8 @@ public:
     Vec4 operator-(float v) const;
     Vec4 operator*(float v) const;
     Vec4 operator/(float v) const;
-    
+
+    std::string toString() const;
 };
 
 

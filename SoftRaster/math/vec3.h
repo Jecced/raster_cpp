@@ -35,6 +35,8 @@ public:
     Vec3 operator-(float v) const;
     Vec3 operator*(float v) const;
     Vec3 operator/(float v) const;
+
+    std::string toString() const;
 };
 
 

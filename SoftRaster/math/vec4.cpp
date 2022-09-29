@@ -2,6 +2,7 @@
 // Created by root on 2022/9/27.
 //
 
+#include <string>
 #include "cmath"
 #include "Vec4.h"
 
@@ -13,29 +14,26 @@ Vec4::Vec4() {
     w = 0;
 }
 
-Vec4::Vec4(float mx, float my, float mz, float mw) {
-    x = mx;
-    y = my;
-    z = mz;
-    w = mw;
+Vec4::Vec4(float x, float y, float z, float w) {
+    this->set(x, y, z, w);
 }
 
 Vec4::~Vec4() {
 
 }
 
-void Vec4::set(float mx, float my, float mz, float mw) {
-    x = mx;
-    y = my;
-    z = mz;
-    w = mw;
+void Vec4::set(float x, float y, float z, float w) {
+    this->x = x;
+    this->y = y;
+    this->z = z;
+    this->w = w;
 }
 
 void Vec4::set(const Vec4 &other) {
-    x = other.x;
-    y = other.y;
-    z = other.z;
-    w = other.w;
+    this->x = other.x;
+    this->y = other.y;
+    this->z = other.z;
+    this->w = other.w;
 }
 
 void Vec4::scale(float scale) {
@@ -45,7 +43,7 @@ void Vec4::scale(float scale) {
     w *= scale;
 }
 
-bool Vec4::isZero() const {
+inline bool Vec4::isZero() const {
     return x == 0 && y == 0 && z == 0 && w == 0;
 }
 
@@ -142,4 +140,9 @@ Vec4 Vec4::operator/(float v) const {
     out.z = this->z / v;
     out.w = this->w / v;
     return out;
+}
+
+std::string Vec4::toString() const {
+    return "vec4(" + std::to_string(x) + ", " + std::to_string(y) + ", " + std::to_string(z) + ", " +
+           std::to_string(w) + ")";
 }

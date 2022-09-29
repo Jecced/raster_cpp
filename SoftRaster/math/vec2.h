@@ -35,6 +35,8 @@ public:
     Vec2 operator-(float v) const;
     Vec2 operator*(float v) const;
     Vec2 operator/(float v) const;
+
+    std::string toString() const;
 };
 
 

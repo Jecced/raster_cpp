@@ -1,6 +1,7 @@
 //
 // Created by Admin on 2022/9/28.
 //
+#include <string>
 #include <cmath>
 #include "Vec3.h"
 
@@ -10,20 +11,18 @@ Vec3::Vec3() {
     z = 0;
 }
 
-Vec3::Vec3(float mx, float my, float mz) {
-    x = mx;
-    y = my;
-    z = mz;
+Vec3::Vec3(float x, float y, float z) {
+    this->set(x, y, z);
 }
 
 Vec3::~Vec3() {
 
 }
 
-void Vec3::set(float mx, float my, float mz) {
-    x = mx;
-    y = my;
-    z = mz;
+void Vec3::set(float x, float y, float z) {
+    this->x = x;
+    this->y = y;
+    this->z = z;
 }
 
 void Vec3::set(const Vec3 &other) {
@@ -38,7 +37,7 @@ void Vec3::scale(float scale) {
     z *= scale;
 }
 
-bool Vec3::isZero() const {
+inline bool Vec3::isZero() const {
     return x == 0 && y == 0 && z == 0;
 }
 
@@ -126,4 +125,8 @@ Vec3 Vec3::operator/(float v) const {
     out.y = this->y / v;
     out.z = this->z / v;
     return out;
+}
+
+std::string Vec3::toString() const {
+    return "vec3(" + std::to_string(x) + ", " + std::to_string(y) + ", " + std::to_string(z) + ")";
 }
