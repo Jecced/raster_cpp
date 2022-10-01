@@ -59,4 +59,12 @@ Mat3 *mat3(const Vec3 &a, const Vec3 &b, const Vec3 &c);
 
 Mat4 *mat4(const Vec4 &a, const Vec4 &b, const Vec4 &c, const Vec4 &d);
 
+float distance(const Vec2 &a, const Vec2 &b);
+float distance(const Vec3 &a, const Vec3 &b);
+float distance(const Vec4 &a, const Vec4 &b);
+
+float length(const Vec2 &a);
+float length(const Vec3 &a);
+float length(const Vec4 &a);
+
 #endif //SOFTRASTER_MATRIX_H
