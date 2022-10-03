@@ -7,8 +7,15 @@
 
 #include "../matrix/vec4.h"
 #include "frame_buffer.h"
+#include "z_buffer.h"
 
 class CameraTarget {
+private:
+    // Color Buffer
+    FrameBuffer* frameBuffer;
+
+    // Z Buffer
+    ZBuffer* zBuffer;
 public:
     int width, height;
 
@@ -22,6 +29,10 @@ public:
 
     void clear();
 
+    bool zTest(unsigned int x, unsigned int y, float z);
+
+    void zWriter(unsigned int x, unsigned int y, float z);
+
 private:
     static unsigned int toRGB(const Vec4 &color);
 
@@ -29,10 +40,6 @@ private:
 
     unsigned index(unsigned int x, unsigned int y) const;
 
-    // Color Buffer
-    FrameBuffer* frameBuffer;
-
-    // Z Buffer
 
 };
 
