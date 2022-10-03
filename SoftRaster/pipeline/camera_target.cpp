@@ -3,43 +3,37 @@
 //
 
 #include "camera_target.h"
+#include "frame_buffer.h"
 
-CameraTarget::CameraTarget(int width, int height) {
+CameraTarget::CameraTarget(int width, int height, unsigned int **buffer) {
     this->width = width;
     this->height = height;
-    *clearColor = toRGB(*new Vec4(0, 0, 0, 1));
+    unsigned int clearColor = toRGB(*new Vec4(0, 0, 0, 1));
+    this->frameBuffer = new FrameBuffer(buffer, (unsigned int)(width * height));
+    this->frameBuffer->setClearColor(clearColor);
+    this->frameBuffer->clearBuffer();
 }
 
 CameraTarget::~CameraTarget() {
-    if (frameBuffer) {
-        delete frameBuffer;
-    }
 }
 
 void CameraTarget::setColor(unsigned int x, unsigned int y, const Vec4 &color) {
-    frameBuffer[width * y + x] = toRGB(color);
+    frameBuffer->setColor(width * y + x, toRGB(color));
 }
 
 void CameraTarget::setClearColor(const Vec4 &color) {
-    *clearColor = toRGB(color);
-}
-
-inline unsigned int CameraTarget::toRGB(const Vec4 &color) {
-    unsigned short int r = 255 * color.x;
-    unsigned short int g = 255 * color.y;
-    unsigned short int b = 255 * color.z;
-    return (unsigned int) ((b & 0xff) | (g & 0xff << 8) | (r & 0xff << 16));
+    frameBuffer->setClearColor(toRGB(color));
 }
 
 void CameraTarget::clear() {
-    for (int i = 0, len = width * height; i < len; i++) {
-        frameBuffer[i] = *clearColor;
-    }
+    frameBuffer->clearBuffer();
 }
 
-unsigned int *&CameraTarget::getFrameBuffer() {
-    for(int i = 0, len = width * height; i <len ; i++){
-        frameBuffer[i] = toRGB(*new Vec4(1, 0, 0, 1));
-    }
-    return frameBuffer;
+inline unsigned int CameraTarget::toRGB(const Vec4 &color) {
+    unsigned short int r = (unsigned short int)(255.0f * color.x);
+    unsigned short int g = (unsigned short int)(255.0f * color.y);
+    unsigned short int b = (unsigned short int)(255.0f * color.z);
+    return (unsigned int) ((b & 0xff) | ((g & 0xff) << 8) | ((r & 0xff) << 16));
 }
+
+

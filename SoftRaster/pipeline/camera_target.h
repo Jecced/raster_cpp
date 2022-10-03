@@ -6,12 +6,13 @@
 #define SOFTRASTER_CAMERA_TARGET_H
 
 #include "../matrix/vec4.h"
+#include "frame_buffer.h"
 
 class CameraTarget {
 public:
     int width, height;
 
-    CameraTarget(int width, int height);
+    CameraTarget(int width, int height, unsigned int **framebuffer);
 
     ~CameraTarget();
 
@@ -19,18 +20,13 @@ public:
 
     void setClearColor(const Vec4 &color);
 
-    unsigned int*& getFrameBuffer();
-
     void clear();
 
 private:
-    unsigned int *frameBuffer;
-
-    unsigned int *clearColor;
-
-    unsigned int toRGB(const Vec4 &color);
+    static unsigned int toRGB(const Vec4 &color);
 
     // Color Buffer
+    FrameBuffer* frameBuffer;
 
     // Z Buffer
 
