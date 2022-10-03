@@ -5,6 +5,8 @@
 #ifndef SOFTRASTER_VEC2_H
 #define SOFTRASTER_VEC2_H
 
+#include <string>
+
 
 class Vec2 {
 public:

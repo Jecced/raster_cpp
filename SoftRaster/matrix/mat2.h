@@ -5,7 +5,7 @@
 #ifndef SOFTRASTER_MAT2_H
 #define SOFTRASTER_MAT2_H
 
-
+#include <string>
 #include "vec2.h"
 
 class Mat2 {
