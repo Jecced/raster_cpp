@@ -25,6 +25,10 @@ public:
 private:
     static unsigned int toRGB(const Vec4 &color);
 
+    int index(int x, int y) const;
+
+    unsigned index(unsigned int x, unsigned int y) const;
+
     // Color Buffer
     FrameBuffer* frameBuffer;
 

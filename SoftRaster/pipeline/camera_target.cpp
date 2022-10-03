@@ -18,7 +18,7 @@ CameraTarget::~CameraTarget() {
 }
 
 void CameraTarget::setColor(unsigned int x, unsigned int y, const Vec4 &color) {
-    frameBuffer->setColor(width * y + x, toRGB(color));
+    frameBuffer->setColor(index(x, y), toRGB(color));
 }
 
 void CameraTarget::setClearColor(const Vec4 &color) {
@@ -27,6 +27,14 @@ void CameraTarget::setClearColor(const Vec4 &color) {
 
 void CameraTarget::clear() {
     frameBuffer->clearBuffer();
+}
+
+inline int CameraTarget::index(int x, int y) const {
+    return width * y + x;
+}
+
+inline unsigned int CameraTarget::index(unsigned int x, unsigned int y) const {
+    return width * y + x;
 }
 
 inline unsigned int CameraTarget::toRGB(const Vec4 &color) {
