@@ -87,7 +87,7 @@ void Mat4::transpose() {
     data[14] = a23;
 }
 
-Mat4* Mat4::clone() {
+Mat4* Mat4::clone() const {
     Mat4* mat = new Mat4();
     mat->data[0] = this->data[0];
     mat->data[1] = this->data[1];

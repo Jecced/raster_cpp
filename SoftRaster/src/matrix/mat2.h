@@ -20,7 +20,7 @@ public:
     void set(float a0, float a1, float b0, float b1);
     float get(int index);
     void transpose();
-    Mat2* clone();
+    Mat2* clone() const;
 
     std::string toString();
 

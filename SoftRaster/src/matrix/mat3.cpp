@@ -60,7 +60,7 @@ void Mat3::transpose() {
     data[7] = a05;
 }
 
-Mat3 *Mat3::clone() {
+Mat3 *Mat3::clone() const {
     Mat3 *mat = new Mat3();
     mat->data[0] = this->data[0];
     mat->data[1] = this->data[1];
