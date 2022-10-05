@@ -8,9 +8,7 @@
 
 
 Mat3::Mat3() {
-    this->set(1.0, 0.0, 0.0,
-              0.0, 1.0, 0.0,
-              0.0, 0.0, 1.0);
+    this->identity();
 }
 
 Mat3::Mat3(float a0, float a1, float a2, float b0, float b1, float b2, float c0, float c1, float c2) {
@@ -108,4 +106,10 @@ Vec3 *Mat3::operator*(const Vec3 &a) const {
             this->data[6] * a.x + this->data[7] * a.y + this->data[8] * a.z
     );
     return out;
+}
+
+void Mat3::identity() {
+    this->set(1.0, 0.0, 0.0,
+              0.0, 1.0, 0.0,
+              0.0, 0.0, 1.0);
 }

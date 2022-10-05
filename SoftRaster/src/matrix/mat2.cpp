@@ -5,8 +5,7 @@
 #include "mat2.h"
 
 Mat2::Mat2() {
-    this->set(1.0, 0.0,
-              0.0, 1.0);
+    this->identity();
 }
 
 Mat2::Mat2(float a0, float a1, float b0, float b1) {
@@ -71,4 +70,9 @@ Vec2* Mat2::operator*(const Vec2 &a) const {
             this->data[2] * a.x + this->data[3] * a.y
     );
     return out;
+}
+
+void Mat2::identity() {
+    this->set(1.0, 0.0,
+              0.0, 1.0);
 }

@@ -6,11 +6,7 @@
 #include "mat4.h"
 
 Mat4::Mat4() {
-    this->set(1.0, 0.0, 0.0, 0.0,
-              0.0, 1.0, 0.0, 0.0,
-              0.0, 0.0, 1.0, 0.0,
-              0.0, 0.0, 0.0, 1.0
-    );
+    this->identity();
 }
 
 Mat4::Mat4(float a0, float a1, float a2, float a3,
@@ -156,4 +152,12 @@ Vec4 *Mat4::operator*(const Vec4 &a) const {
             this->data[12] * a.x + this->data[13] * a.y + this->data[14] * a.z + this->data[15] * a.w
     );
     return out;
+}
+
+void Mat4::identity() {
+    this->set(1.0, 0.0, 0.0, 0.0,
+              0.0, 1.0, 0.0, 0.0,
+              0.0, 0.0, 1.0, 0.0,
+              0.0, 0.0, 0.0, 1.0
+    );
 }

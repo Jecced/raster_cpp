@@ -34,6 +34,8 @@ public:
 
     void transpose();
 
+    void identity();
+
     Mat4* clone() const;
 
     std::string toString();
