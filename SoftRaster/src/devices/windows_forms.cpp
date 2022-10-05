@@ -130,8 +130,9 @@ int WindowsForms::screenDispatch() {
 
 void WindowsForms::initFrameBuffer(int width, int height, unsigned char *screenBuffer) {
 
-    int need = sizeof(void*) * (height * 2 + 1024) + width * height * 8;
-    char *ptr = (char*)malloc(need + 64);
+//    int need = sizeof(void*) * (height * 2 + 1024) + width * height * 8;
+//    char *ptr = (char*)malloc(need + 64);
+    char *ptr = (char*)malloc(width * height * 8);
     framebuffer = (unsigned int**)ptr;
 
     for (int i = 0, len = width * height; i < len; i++) {
