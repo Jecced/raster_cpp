@@ -37,7 +37,7 @@ void Vec3::scale(float scale) {
     z *= scale;
 }
 
-inline bool Vec3::isZero() const {
+bool Vec3::isZero() const {
     return x == 0 && y == 0 && z == 0;
 }
 

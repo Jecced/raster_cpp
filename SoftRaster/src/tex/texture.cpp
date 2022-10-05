@@ -19,7 +19,7 @@ Texture::Texture(char const *filename) {
     }
 }
 
-inline unsigned int Texture::at(int x, int y) {
+unsigned int Texture::at(int x, int y) {
     return data[y * width + x];
 }
 

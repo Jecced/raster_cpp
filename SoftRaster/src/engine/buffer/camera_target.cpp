@@ -20,11 +20,11 @@ CameraTarget::CameraTarget(int width, int height, unsigned int *buffer) {
 CameraTarget::~CameraTarget() {
 }
 
-inline void CameraTarget::setColor(unsigned int x, unsigned int y, const Vec4 &color) {
+void CameraTarget::setColor(unsigned int x, unsigned int y, const Vec4 &color) {
     frameBuffer->setColor(index(x, y), toRGB(color));
 }
 
-inline void CameraTarget::setClearColor(const Vec4 &color) {
+void CameraTarget::setClearColor(const Vec4 &color) {
     frameBuffer->setClearColor(toRGB(color));
 }
 
@@ -33,11 +33,11 @@ void CameraTarget::clear() {
     zBuffer->clearBuffer();
 }
 
-inline int CameraTarget::index(int x, int y) const {
+int CameraTarget::index(int x, int y) const {
     return width * y + x;
 }
 
-inline unsigned int CameraTarget::index(unsigned int x, unsigned int y) const {
+unsigned int CameraTarget::index(unsigned int x, unsigned int y) const {
     return width * y + x;
 }
 
@@ -49,7 +49,7 @@ void CameraTarget::zWriter(unsigned int x, unsigned int y, float z) {
     this->zBuffer->setZ(index(x, y), z);
 }
 
-inline unsigned int CameraTarget::toRGB(const Vec4 &color) {
+unsigned int CameraTarget::toRGB(const Vec4 &color) {
     unsigned short int r = (unsigned short int) (255.0f * color.x);
     unsigned short int g = (unsigned short int) (255.0f * color.y);
     unsigned short int b = (unsigned short int) (255.0f * color.z);

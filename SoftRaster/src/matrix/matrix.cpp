@@ -143,20 +143,20 @@ Mat4 *mat4(const Vec4 &a, const Vec4 &b, const Vec4 &c, const Vec4 &d) {
                     d.x, d.y, d.z, d.w);
 }
 
-inline float distance(const Vec2 &a, const Vec2 &b) {
+float distance(const Vec2 &a, const Vec2 &b) {
     float dx = a.x - b.x;
     float dy = a.y - b.y;
     return std::sqrt(dx * dx + dy * dy);
 }
 
-inline float distance(const Vec3 &a, const Vec3 &b) {
+float distance(const Vec3 &a, const Vec3 &b) {
     float dx = a.x - b.x;
     float dy = a.y - b.y;
     float dz = a.z - b.z;
     return std::sqrt(dx * dx + dy * dy + dz * dz);
 }
 
-inline float distance(const Vec4 &a, const Vec4 &b) {
+float distance(const Vec4 &a, const Vec4 &b) {
     float dx = a.x - b.x;
     float dy = a.y - b.y;
     float dz = a.z - b.z;
@@ -164,15 +164,15 @@ inline float distance(const Vec4 &a, const Vec4 &b) {
     return std::sqrt(dx * dx + dy * dy + dz * dz + dw * dw);
 }
 
-inline float length(const Vec2 &a) {
+float length(const Vec2 &a) {
     return std::sqrt(a.x * a.x + a.y * a.y);
 }
 
-inline float length(const Vec3 &a) {
+float length(const Vec3 &a) {
     return std::sqrt(a.x * a.x + a.y * a.y + a.z * a.z);
 }
 
-inline float length(const Vec4 &a) {
+float length(const Vec4 &a) {
     return std::sqrt(a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w);
 }
 

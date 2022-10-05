@@ -43,7 +43,7 @@ void Vec4::scale(float scale) {
     w *= scale;
 }
 
-inline bool Vec4::isZero() const {
+bool Vec4::isZero() const {
     return x == 0 && y == 0 && z == 0 && w == 0;
 }
 

@@ -33,7 +33,7 @@ void Vec2::scale(float scale) {
     y *= scale;
 }
 
-inline bool Vec2::isZero() const {
+bool Vec2::isZero() const {
     return x == 0 && y == 0;
 }
 
