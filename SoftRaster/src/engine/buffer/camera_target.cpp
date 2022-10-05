@@ -5,7 +5,7 @@
 #include "camera_target.h"
 #include "frame_buffer.h"
 
-CameraTarget::CameraTarget(int width, int height, unsigned int **buffer) {
+CameraTarget::CameraTarget(int width, int height, unsigned int *buffer) {
     this->width = width;
     this->height = height;
 

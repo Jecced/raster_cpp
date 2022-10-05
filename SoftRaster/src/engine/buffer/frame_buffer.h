@@ -8,17 +8,17 @@
 
 class FrameBuffer {
 private:
-    unsigned int **framebuffer;
+    unsigned int *framebuffer;
     unsigned int bufferSize;
     unsigned int clearColor;
 public:
-    FrameBuffer(unsigned int **buffer, unsigned int bufferSize);
+    FrameBuffer(unsigned int *buffer, unsigned int bufferSize);
 
     void clearBuffer();
 
     void setClearColor(unsigned int color);
 
-    unsigned int **getFrameBuffer();
+    unsigned int *getFrameBuffer();
 
     void setColor(int index, unsigned int color);
 };

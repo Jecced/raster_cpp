@@ -19,7 +19,7 @@ private:
 public:
     int width, height;
 
-    CameraTarget(int width, int height, unsigned int **framebuffer);
+    CameraTarget(int width, int height, unsigned int *framebuffer);
 
     ~CameraTarget();
 
