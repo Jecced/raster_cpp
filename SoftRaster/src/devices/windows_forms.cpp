@@ -9,10 +9,9 @@ int screenExitCode = 0;
 
 WindowsForms::WindowsForms(int width, int height) {
     screenInit(width, height, _T("SoftRaster"));
-    initFrameBuffer(width, height, this->screenBuffer);
 }
 
-WindowsForms::~WindowsForms(){
+WindowsForms::~WindowsForms() {
     screenClose();
 }
 
@@ -47,7 +46,7 @@ int WindowsForms::screenInit(int w, int h, const CHAR *title) {
     if (screenHB == NULL) return -3;
 
     screenOB = (HBITMAP) SelectObject(screenDC, screenHB);
-    screenBuffer = (unsigned char *) ptr;
+    this->framebuffer = (unsigned int *) ptr;
     width = w;
     height = h;
 //    screenPitch = w * 4;
@@ -65,7 +64,9 @@ int WindowsForms::screenInit(int w, int h, const CHAR *title) {
     screenDispatch();
 
 //    memset(screenKeys, 0, sizeof(int) * 512);
-    memset(screenBuffer, 0, w * h * 4);
+    memset(this->framebuffer, 0, w * h * 4);
+
+//    this->framebuffer = (unsigned int *) screenBuffer;
 
     return 0;
 }
@@ -73,7 +74,9 @@ int WindowsForms::screenInit(int w, int h, const CHAR *title) {
 LRESULT WindowsForms::screenEvents(HWND hWnd, UINT msg,
                                    WPARAM wParam, LPARAM lParam) {
     switch (msg) {
-        case WM_CLOSE: screenExitCode = 1; break;
+        case WM_CLOSE:
+            screenExitCode = 1;
+            break;
 //        case WM_KEYDOWN: screen_keys[wParam & 511] = 1; break;
 //        case WM_KEYUP: screen_keys[wParam & 511] = 0; break;
         default:
@@ -128,19 +131,7 @@ int WindowsForms::screenDispatch() {
     return screenExitCode == 0;
 }
 
-void WindowsForms::initFrameBuffer(int width, int height, unsigned char *screenBuffer) {
-
-//    int need = sizeof(void*) * (height * 2 + 1024) + width * height * 8;
-//    char *ptr = (char*)malloc(need + 64);
-    char *ptr = (char*)malloc(width * height * 8);
-    framebuffer = (unsigned int**)ptr;
-
-    for (int i = 0, len = width * height; i < len; i++) {
-        framebuffer[i] = (unsigned int *) (screenBuffer + 4 * i);
-    }
-}
-
-unsigned int **WindowsForms::getFrameBuffer() {
+unsigned int *WindowsForms::getFrameBuffer() {
     return framebuffer;
 }
 

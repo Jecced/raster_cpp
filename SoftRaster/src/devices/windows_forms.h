@@ -16,8 +16,7 @@ private:
     HDC screenDC;           // 配套的 HDC
     HBITMAP screenHB;       // DIB
     HBITMAP screenOB;       // 老的 BITMAP
-    unsigned char *screenBuffer;    // 屏幕FrameBuffer
-    unsigned int **framebuffer;     // 实际操作的FrameBuffer
+    unsigned int *framebuffer;     // FrameBuffer
 
 public:
     WindowsForms(int width, int height);
@@ -36,15 +35,12 @@ private:
     LRESULT static screenEvents(HWND hWnd, UINT msg,
                                 WPARAM wParam, LPARAM lParam);
 
-
-    void initFrameBuffer(int width, int height, unsigned char *screenBuffer);
-
 public:
     int screenDispatch();
 
     void screenUpdate();
 
-    unsigned int **getFrameBuffer();
+    unsigned int *getFrameBuffer();
 
 };
 
