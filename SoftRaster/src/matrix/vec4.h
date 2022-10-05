@@ -6,6 +6,8 @@
 #define SOFTRASTER_VEC4_H
 
 #include <string>
+#include "vec2.h"
+#include "vec3.h"
 
 
 class Vec4 {
@@ -39,6 +41,12 @@ public:
     Vec4* operator-(float v) const;
     Vec4* operator*(float v) const;
     Vec4* operator/(float v) const;
+
+    Vec2* xy() const;
+    Vec2* zw() const;
+
+    Vec3* xyz() const;
+    Vec3* rgb() const;
 
     std::string toString() const;
 };
