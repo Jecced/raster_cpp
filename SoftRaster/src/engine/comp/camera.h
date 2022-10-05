@@ -6,7 +6,7 @@
 #define SOFTRASTER_CAMERA_H
 
 
-#include "../matrix/matrix.h"
+#include "../../matrix/matrix.h"
 
 class Camera {
 private:
