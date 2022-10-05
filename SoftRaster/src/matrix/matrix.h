@@ -67,4 +67,8 @@ float length(const Vec2 &a);
 float length(const Vec3 &a);
 float length(const Vec4 &a);
 
+Mat2 *transpose(const Mat2 &a);
+Mat3 *transpose(const Mat3 &a);
+Mat4 *transpose(const Mat4 &a);
+
 #endif //SOFTRASTER_MATRIX_H
