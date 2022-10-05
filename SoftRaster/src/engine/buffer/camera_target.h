@@ -5,7 +5,7 @@
 #ifndef SOFTRASTER_CAMERA_TARGET_H
 #define SOFTRASTER_CAMERA_TARGET_H
 
-#include "../matrix/vec4.h"
+#include "../../matrix/vec4.h"
 #include "frame_buffer.h"
 #include "z_buffer.h"
 

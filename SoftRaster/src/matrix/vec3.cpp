@@ -3,7 +3,7 @@
 //
 #include <string>
 #include <cmath>
-#include "Vec3.h"
+#include "vec3.h"
 
 Vec3::Vec3() {
     x = 0;

@@ -3,4 +3,4 @@ project(SoftRaster)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(SoftRaster main.cpp matrix/vec4.cpp matrix/vec4.h matrix/vec2.cpp matrix/vec2.h matrix/vec3.cpp matrix/vec3.h matrix/mat2.cpp matrix/mat2.h matrix/mat3.cpp matrix/mat3.h matrix/mat4.cpp matrix/mat4.h matrix/matrix.cpp matrix/matrix.h pipeline/camera_target.cpp pipeline/camera_target.h devices/windows_forms.cpp devices/windows_forms.h pipeline/frame_buffer.cpp pipeline/frame_buffer.h pipeline/z_buffer.cpp pipeline/z_buffer.h tex/stb_image.h tex/texture.cpp tex/texture.h)
+add_executable(SoftRaster src/main.cpp src/matrix/vec4.cpp src/matrix/vec4.h src/matrix/vec2.cpp src/matrix/vec2.h src/matrix/vec3.cpp src/matrix/vec3.h src/matrix/mat2.cpp src/matrix/mat2.h src/matrix/mat3.cpp src/matrix/mat3.h src/matrix/mat4.cpp src/matrix/mat4.h src/matrix/matrix.cpp src/matrix/matrix.h src/engine/buffer/camera_target.cpp src/engine/buffer/camera_target.h src/devices/windows_forms.cpp src/devices/windows_forms.h src/engine/buffer/frame_buffer.cpp src/engine/buffer/frame_buffer.h src/engine/buffer/z_buffer.cpp src/engine/buffer/z_buffer.h src/tex/stb_image.h src/tex/texture.cpp src/tex/texture.h)

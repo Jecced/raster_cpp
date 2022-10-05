@@ -4,7 +4,7 @@
 
 #include <string>
 #include "cmath"
-#include "Vec4.h"
+#include "vec4.h"
 
 
 Vec4::Vec4() {

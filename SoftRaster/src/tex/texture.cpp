@@ -12,7 +12,7 @@
 Texture::Texture(char const *filename) {
     stbi_uc *pixels = stbi_load(filename, &width, &height, &channel, STBI_rgb_alpha);
     if (!pixels) {
-        std::cout << "加载图像失败" << std::endl;
+        std::cout << "load img error" << std::endl;
         std::cout << filename << std::endl;
     } else {
         data = (unsigned int *) pixels;
