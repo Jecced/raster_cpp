@@ -2,24 +2,33 @@
 #include "matrix/matrix.h"
 #include "devices/windows_forms.h"
 
-#define STB_IMAGE_IMPLEMENTATION
 
 #include "libs/stb_image.h"
 #include "tex/texture.h"
+#include "engine/comp/mesh.h"
+
 
 int main() {
 
-//    WindowsForms *w = new WindowsForms(800, 600);
-//    auto buff = w->getFrameBuffer();
+    Mesh* mesh = Mesh::Obj2Mesh("../resources/african_head.obj");
+
+
+
+    return 0;
+
+
+
+//    WindowsForms *win = new WindowsForms(800, 600);
+//    auto buff = win->getFrameBuffer();
 //    for (int i = 0; i < 800 * 600; i++) {
 //        unsigned short int r = 255;
 //        unsigned short int g = 0;
 //        unsigned short int b = 122;
 //        unsigned int c = (unsigned int) ((b & 0xff) | ((g & 0xff) << 8) | ((r & 0xff) << 16));
-//        *buff[i] = c;
+//        buff[i] = c;
 //    }
-//    while (w->screenDispatch()) {
-//        w->screenUpdate();
+//    while (win->screenDispatch()) {
+//        win->screenUpdate();
 //        Sleep(1);
 //    }
 
