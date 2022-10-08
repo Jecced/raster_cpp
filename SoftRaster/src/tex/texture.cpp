@@ -5,9 +5,10 @@
 #include "texture.h"
 #include <iostream>
 //https://github.com/nothings/stb
-#include "../libs/stb_image.h"
 
 #define STB_IMAGE_IMPLEMENTATION
+#include "../libs/stb_image.h"
+
 
 Texture::Texture(char const *filename) {
     stbi_uc *pixels = stbi_load(filename, &width, &height, &channel, STBI_rgb_alpha);
