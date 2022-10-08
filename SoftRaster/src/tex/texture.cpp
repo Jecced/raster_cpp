@@ -5,7 +5,7 @@
 #include "texture.h"
 #include <iostream>
 //https://github.com/nothings/stb
-#include "stb_image.h"
+#include "../libs/stb_image.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 
