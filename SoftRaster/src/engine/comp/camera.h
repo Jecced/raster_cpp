@@ -23,7 +23,7 @@ private:
 
     int width, height;
 
-    float near, far;
+    float n, f;
 
     /**
      * 将标准-1~1的矩阵变换到屏幕大小的矩阵
@@ -81,6 +81,7 @@ public:
     Mat4* getProjectionMatIT();
 
 private:
+    void init(int width, int height, float near, float far, float fov);
     void calcMatView();
 
     /**

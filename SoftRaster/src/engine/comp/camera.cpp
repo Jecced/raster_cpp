@@ -6,17 +6,21 @@
 #include <math.h>
 
 Camera::Camera(int width, int height, float near, float far) {
-    Camera(width, height, near, far, 45);
+    this->init(width, height, near, far, 45);
 }
 
 Camera::Camera(int width, int height, float near, float far, float fov) {
+    this->init(width, height, near, far, fov);
+}
+
+void Camera::init(int width, int height, float near, float far, float fov) {
     this->position = vec3(0, 0, 0);
     this->direct = vec3(0, 0, -1);
     this->up = vec3(0, 1, 0);
     this->width = width;
     this->height = height;
-    this->near = near;
-    this->far = far;
+    this->n = near;
+    this->f = far;
     this->fov = fov;
 
     this->matScreen = new Mat4();
@@ -149,7 +153,7 @@ void Camera::calcMatOrthographic() {
     /**
      * tan(fov/2) = t / n
      */
-    float t = tan(this->fov / 360.0f * 2.0f * 3.1415926f / 2.0f) * abs(near);
+    float t = tan(this->fov / 360.0f * 2.0f * 3.1415926f / 2.0f) * abs(n);
     float b = -t;
     /**
      *  nx     r
@@ -159,7 +163,6 @@ void Camera::calcMatOrthographic() {
     float r = ((float) this->width / (float) this->height) * t;
     float l = -r;
 
-    float n = near, f = far;
     /**
      * 正交矩阵, 将矩阵移动缩放到lrtbnf方块内
      */
@@ -198,8 +201,6 @@ void Camera::calcMatProjection() {
         return;
     }
 
-    float n = this->near;
-    float f = this->far;
     this->matProjection->set(
             n, 0, 0, 0,
             0, n, 0, 0,
