@@ -35,6 +35,8 @@ int WindowsForms::screenInit(int w, int h, const CHAR *title) {
     screenHandle = CreateWindow(_T("SCREEN3.1415926"), title,
                                 WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX,
                                 0, 0, 0, 0, NULL, NULL, wc.hInstance, NULL);
+
+//    screenHandle->SetWindow
     if (screenHandle == NULL) return -2;
 
     screenExitCode = 0;
@@ -133,5 +135,13 @@ int WindowsForms::screenDispatch() {
 
 unsigned int *WindowsForms::getFrameBuffer() {
     return framebuffer;
+}
+
+void WindowsForms::setTitle(const CHAR *title) {
+    SetWindowTextA(screenHandle, title);
+}
+
+void WindowsForms::setTitle(const std::string title) {
+    SetWindowTextA(screenHandle, title.data());
 }
 

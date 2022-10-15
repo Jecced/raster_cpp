@@ -43,7 +43,10 @@ int main() {
 
     while (win->screenDispatch()) {
         time->once();
-        std::cout << time->getDT() << std::endl;
+//        std::cout << time->getDT() << std::endl;
+        win->setTitle("SoftRaster " + std::to_string(time->getDT()) + "ms");
+
+
         pipeline->clear();
 
         pipeline->bindShader(*shader);
