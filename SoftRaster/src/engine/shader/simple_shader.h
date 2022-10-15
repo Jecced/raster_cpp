@@ -21,7 +21,7 @@ class SimpleShader: public ShaderLab{
         o.color = i.color;
 
         o.positionWS = *matM * *vec4(*i.vertex, 1.0);
-        o.positionCS = *matP * *o.positionWS;
+        o.positionCS = *matVP * *o.positionWS;
         gl_Position = o.positionCS;
     }
 
