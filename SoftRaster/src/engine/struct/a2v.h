@@ -10,9 +10,18 @@
 
 class A2V {
 public:
-    Vec3 vertex;
-    Vec3 normal;
-    Vec2 texCoord;
+    Vec3* vertex;
+    Vec3* normal;
+    Vec4* color;
+    Vec2* texCoord;
+
+public:
+    A2V(){
+        vertex = new Vec3();
+        normal = new Vec3();
+        texCoord = new Vec2();
+        color = new Vec4();
+    }
 };
 
 
