@@ -29,7 +29,7 @@ Vec4 *Texture::sample(const Vec2 &uv) const {
 }
 
 Vec4* Texture::sample(const Vec2 &uv, Vec4 *out) const {
-    unsigned int c = at(uv.x * width, uv.y * height);
+    unsigned int c = at(uv.x * width, (1 - uv.y) * height);
     out->x = ((c >> 0) & 0xff) / 255.0f;
     out->y = ((c >> 8) & 0xff) / 255.0f;
     out->z = ((c >> 16) & 0xff) / 255.0f;
