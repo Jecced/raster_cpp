@@ -70,8 +70,8 @@ public:
             );
             out->texCoords->push_back(
                     *vec2(
-                            attrib.texcoords.at(faceData.normal_index * 2 + 0),
-                            attrib.texcoords.at(faceData.normal_index * 2 + 1)
+                            attrib.texcoords.at(faceData.texcoord_index * 2 + 0),
+                            attrib.texcoords.at(faceData.texcoord_index * 2 + 1)
                     )
             );
             // 插入一个纯白的顶点色
