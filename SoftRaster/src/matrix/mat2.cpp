@@ -27,6 +27,13 @@ void Mat2::set(float a0, float a1, float b0, float b1) {
     data[3] = b1;
 }
 
+void Mat2::set(const Mat2 &mat) {
+    data[0] = mat.data[0];
+    data[1] = mat.data[1];
+    data[2] = mat.data[2];
+    data[3] = mat.data[3];
+}
+
 float Mat2::get(int index) {
     return data[index];
 }

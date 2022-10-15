@@ -30,6 +30,8 @@ public:
              float c0, float c1, float c2, float c3,
              float d0, float d1, float d2, float d3);
 
+    void set(const Mat4 &mat4);
+
     float get(int index);
 
     void transpose();

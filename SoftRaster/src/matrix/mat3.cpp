@@ -35,6 +35,18 @@ void Mat3::set(float a0, float a1, float a2, float b0, float b1, float b2, float
     data[8] = c2;
 }
 
+void Mat3::set(const Mat3 &mat) {
+    data[0] = mat.data[0];
+    data[1] = mat.data[1];
+    data[2] = mat.data[2];
+    data[3] = mat.data[3];
+    data[4] = mat.data[4];
+    data[5] = mat.data[5];
+    data[6] = mat.data[6];
+    data[7] = mat.data[7];
+    data[8] = mat.data[8];
+}
+
 float Mat3::get(int index) {
     return data[index];
 }

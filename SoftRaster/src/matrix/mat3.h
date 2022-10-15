@@ -18,6 +18,7 @@ private:
 public:
     void set(int index, float v);
     void set(float a0, float a1, float a2, float b0, float b1, float b2, float c0, float c1, float c2);
+    void set(const Mat3 &mat);
     float get(int index);
     void transpose();
     void identity();
