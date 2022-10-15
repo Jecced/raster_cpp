@@ -39,7 +39,7 @@ public:
 
     virtual void frag(const V2F& i) = 0;
 
-private:
+public:
     Vec4 *texture2D(const Texture& tex,const Vec2& uv){
         return tex.sample(uv);
     }
