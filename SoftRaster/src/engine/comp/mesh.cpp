@@ -33,5 +33,6 @@ A2V Mesh::at(int index, A2V &out) {
     out.normal->set(normals->at(index));
     out.vertex->set(vertices->at(index));
     out.texCoord->set(texCoords->at(index));
+    out.color->set(color->at(index));
     return out;
 }
