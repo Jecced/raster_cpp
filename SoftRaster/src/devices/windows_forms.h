@@ -51,6 +51,9 @@ public:
 
     unsigned int *getFrameBuffer();
 
+    void setTitle(const CHAR *title);
+    void setTitle(const std::string title);
+
 };
 
 
