@@ -14,6 +14,64 @@
 
 class MeshUtil{
 public:
+    static Mesh *Triangle(){
+        Mesh *out = new Mesh();
+
+        out->vertices->push_back(*vec3(-0.5, -0.5, 0.0));
+        out->vertices->push_back(*vec3(0.5, -0.5, 0.0));
+        out->vertices->push_back(*vec3(0.0, 0.5, 0.0));
+        out->normals->push_back(*vec3(0));
+        out->normals->push_back(*vec3(0));
+        out->normals->push_back(*vec3(0));
+        out->texCoords->push_back(*vec2(0));
+        out->texCoords->push_back(*vec2(0));
+        out->texCoords->push_back(*vec2(0));
+        out->color->push_back(*vec4(1, 0, 0, 1));
+        out->color->push_back(*vec4(0, 1, 0, 1));
+        out->color->push_back(*vec4(0, 0, 1, 1));
+
+        out->indices->push_back(0);
+        out->indices->push_back(1);
+        out->indices->push_back(2);
+
+        out->size = 3;
+
+        return out;
+    }
+
+    static Mesh *Quad(){
+        Mesh *out = new Mesh();
+
+        out->vertices->push_back(*vec3(-0.5, -0.5, 0.0));
+        out->vertices->push_back(*vec3(-0.5, 0.5, 0.0));
+        out->vertices->push_back(*vec3(0.5, 0.5, 0.0));
+        out->vertices->push_back(*vec3(0.5, -0.5, 0.0));
+        out->normals->push_back(*vec3(0));
+        out->normals->push_back(*vec3(0));
+        out->normals->push_back(*vec3(0));
+        out->normals->push_back(*vec3(0));
+        out->texCoords->push_back(*vec2(0, 1));
+        out->texCoords->push_back(*vec2(0, 0));
+        out->texCoords->push_back(*vec2(1, 0));
+        out->texCoords->push_back(*vec2(1, 1));
+        out->color->push_back(*vec4(1, 0, 0, 1));
+        out->color->push_back(*vec4(0, 1, 0, 1));
+        out->color->push_back(*vec4(0, 0, 1, 1));
+        out->color->push_back(*vec4(0, 1, 1, 1));
+
+        out->indices->push_back(0);
+        out->indices->push_back(1);
+        out->indices->push_back(2);
+
+        out->indices->push_back(2);
+        out->indices->push_back(3);
+        out->indices->push_back(0);
+
+        out->size = 4;
+
+        return out;
+    }
+
     static Mesh *Obj2Mesh(const char *filename) {
 
         tinyobj::attrib_t attrib;
