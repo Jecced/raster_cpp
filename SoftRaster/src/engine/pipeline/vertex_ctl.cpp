@@ -8,6 +8,7 @@
 VertexCtl::VertexCtl() {
     this->a2v = new std::vector<A2V *>();
     this->v2f = new std::vector<V2F *>();
+    this->glPositionList = new std::vector<Vec4 *>();
 }
 
 void VertexCtl::setMesh(const Mesh &mesh) {
@@ -21,6 +22,7 @@ void VertexCtl::setMesh(const Mesh &mesh) {
         for (int i = 0, len = this->mesh.size - a2v->size(); i < len; i++) {
             a2v->push_back(new A2V());
             v2f->push_back(new V2F());
+            glPositionList->push_back(vec4(0));
         }
     }
     for(int i = 0, len = this->mesh.size; i < len; i++){
@@ -39,5 +41,9 @@ A2V *VertexCtl::getA2V(const int index) {
 
 V2F *VertexCtl::getV2F(const int index) {
     return this->v2f->at(index);
+}
+
+Vec4 *VertexCtl::getGlPosition(const int index) {
+    return this->glPositionList->at(index);
 }
 

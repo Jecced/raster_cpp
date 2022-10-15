@@ -15,6 +15,7 @@ private:
     Mesh mesh;
     std::vector<A2V*> *a2v;
     std::vector<V2F*> *v2f;
+    std::vector<Vec4*> *glPositionList;
 public:
     VertexCtl();
     void setMesh(const Mesh& mesh);
@@ -22,6 +23,7 @@ public:
 
     A2V* getA2V(const int index);
     V2F* getV2F(const int index);
+    Vec4 * getGlPosition(const int index);
 private:
 };
 
