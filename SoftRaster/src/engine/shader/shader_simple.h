@@ -2,8 +2,8 @@
 // Created by root on 2022/10/15.
 //
 
-#ifndef SOFTRASTER_SIMPLE_SHADER_H
-#define SOFTRASTER_SIMPLE_SHADER_H
+#ifndef SOFTRASTER_SHADER_SIMPLE_H
+#define SOFTRASTER_SHADER_SIMPLE_H
 
 
 #include "shader_lab.h"
@@ -11,8 +11,8 @@
 #include "../../matrix/matrix.h"
 
 
-class SimpleShader: public ShaderLab{
-
+class ShaderSimple: public ShaderLab{
+public:
     void vert(const A2V& i, V2F& o){
         o.normalOS = i.normal;
         o.normalWS = (*transpose(*matM_IT) * *vec4(*i.normal, 0.0))->xyz();
@@ -31,4 +31,4 @@ class SimpleShader: public ShaderLab{
 };
 
 
-#endif //SOFTRASTER_SIMPLE_SHADER_H
+#endif //SOFTRASTER_SHADER_SIMPLE_H
