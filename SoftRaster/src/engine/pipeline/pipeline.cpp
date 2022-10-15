@@ -73,8 +73,8 @@ void Pipeline::rasterizer(Vec4 &p0, Vec4 &p1, Vec4 &p2, const V2F &v0, const V2F
     float z1 = p1.w;
     float z2 = p2.w;
     p0 = *(p0 / p0.w);
-    p1 = *(p1 / p0.w);
-    p2 = *(p2 / p0.w);
+    p1 = *(p1 / p1.w);
+    p2 = *(p2 / p2.w);
 
     // 计算三角形面积
     float s = cross(p1.x - p0.x, p1.y - p0.y, p2.x - p0.x, p2.y - p0.y) * 0.5;
