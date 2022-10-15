@@ -109,7 +109,7 @@ void Camera::calcMatView() {
      * v = w x u
      */
     Vec3 *w = this->direct->clone();
-    Vec3 *u = normalize(*cross(*w, *this->up));
+    Vec3 *u = normalize(*cross(*this->up, *w));
     if (u->isZero()) {
         u->set(0, 0, 1);
     }
