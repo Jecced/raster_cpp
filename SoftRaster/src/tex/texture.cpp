@@ -20,15 +20,15 @@ Texture::Texture(char const *filename) {
     }
 }
 
-unsigned int Texture::at(int x, int y) {
+unsigned int Texture::at(int x, int y) const {
     return data[y * width + x];
 }
 
-Vec4 *Texture::sample(const Vec2 &uv) {
+Vec4 *Texture::sample(const Vec2 &uv) const {
     return this->sample(uv, new Vec4());
 }
 
-Vec4* Texture::sample(const Vec2 &uv, Vec4 *out) {
+Vec4* Texture::sample(const Vec2 &uv, Vec4 *out) const {
     unsigned int c = at(uv.x * width, uv.y * height);
     out->x = ((c >> 0) & 0xff) / 255.0f;
     out->y = ((c >> 8) & 0xff) / 255.0f;

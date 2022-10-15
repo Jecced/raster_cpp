@@ -16,11 +16,11 @@ public:
 
     Texture(char const *filename);
 
-    unsigned int at(int x, int y);
+    unsigned int at(int x, int y) const;
 
-    Vec4 *sample(const Vec2 &uv);
+    Vec4 *sample(const Vec2 &uv) const;
 
-    Vec4* sample(const Vec2 &uv, Vec4 *out);
+    Vec4 *sample(const Vec2 &uv, Vec4 *out) const;
 };
 
 
