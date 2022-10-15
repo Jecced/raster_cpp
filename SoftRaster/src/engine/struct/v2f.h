@@ -9,13 +9,23 @@
 
 class V2F {
 public:
-    Vec4* positionCS;
-    Vec4* positionWS;
-    Vec3* normalOS;
-    Vec3* normalWS;
-    Vec2* uv0;
-    Vec4* color;
-
+    Vec4 *positionCS;
+    Vec4 *positionWS;
+    Vec3 *normalOS;
+    Vec3 *normalWS;
+    Vec2 *uv0;
+    Vec4 *color;
+public:
+    V2F(bool use = false) {
+        if (use) {
+            positionCS = new Vec4();
+            positionWS = new Vec4();
+            normalOS = new Vec3();
+            normalWS = new Vec3();
+            uv0 = new Vec2();
+            color = new Vec4();
+        }
+    }
 };
 
 
