@@ -6,9 +6,18 @@
 #define SOFTRASTER_VERTEX_CTL_H
 
 
-class vertex_ctl {
+#include "vector"
+#include "../comp/mesh.h"
+
+class VertexCtl {
+private:
+    Mesh mesh;
+    std::vector<A2V*> *vertexes;
 public:
-    void pushMesh();
+    VertexCtl();
+    void setMesh(const Mesh& mesh);
+    int getSize();
+private:
 };
 
 
