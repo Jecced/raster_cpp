@@ -6,7 +6,8 @@
 
 
 VertexCtl::VertexCtl() {
-    this->vertexes = new std::vector<A2V *>();
+    this->a2v = new std::vector<A2V *>();
+    this->v2f = new std::vector<V2F *>();
 }
 
 void VertexCtl::setMesh(const Mesh &mesh) {
@@ -16,13 +17,14 @@ void VertexCtl::setMesh(const Mesh &mesh) {
      * 根据mesh 批量成成a2v
      */
     // 如果模型大小超过当前pool内的大小，则对pool进行强制加入实例对象
-    if (this->mesh.size > vertexes->size()) {
-        for (int i = 0, len = this->mesh.size - vertexes->size(); i < len; i++) {
-            vertexes->push_back(new A2V());
+    if (this->mesh.size > a2v->size()) {
+        for (int i = 0, len = this->mesh.size - a2v->size(); i < len; i++) {
+            a2v->push_back(new A2V());
+            v2f->push_back(new V2F());
         }
     }
     for(int i = 0, len = this->mesh.size; i < len; i++){
-        this->mesh.at(i, *this->vertexes->at(i));
+        this->mesh.at(i, *this->a2v->at(i));
     }
 }
 
@@ -30,3 +32,12 @@ void VertexCtl::setMesh(const Mesh &mesh) {
 int VertexCtl::getSize() {
     return this->mesh.size;
 }
+
+A2V *VertexCtl::getA2V(const int index) {
+    return this->a2v->at(index);
+}
+
+V2F *VertexCtl::getV2F(const int index) {
+    return this->v2f->at(index);
+}
+
