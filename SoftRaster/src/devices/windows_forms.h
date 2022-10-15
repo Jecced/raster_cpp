@@ -6,6 +6,15 @@
 #define SOFTRASTER_WINDOWS_FORMS_H
 
 #include <string>
+
+/**
+ * windows.h和winsock2.h冲突问题
+ * 方法1：
+ *  在windows.h之前定义 #define WIN32_LEAN_AND_MEAN
+ * 方法2：
+ *  #include <winsock2.h> 在 #include <windows.h> 前
+ */
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 class WindowsForms {
