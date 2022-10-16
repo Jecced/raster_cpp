@@ -50,9 +50,9 @@ void CameraTarget::zWriter(unsigned int x, unsigned int y, float z) {
 }
 
 unsigned int CameraTarget::toRGB(const Vec4 &color) {
-    unsigned short int r = (unsigned short int) (255.0f * color.x);
-    unsigned short int g = (unsigned short int) (255.0f * color.y);
-    unsigned short int b = (unsigned short int) (255.0f * color.z);
+    unsigned short int r = (unsigned short int) (255.0f * std::max(0.0f, std::min(1.0f, color.x)));
+    unsigned short int g = (unsigned short int) (255.0f * std::max(0.0f, std::min(1.0f, color.y)));
+    unsigned short int b = (unsigned short int) (255.0f * std::max(0.0f, std::min(1.0f, color.z)));
     return (unsigned int) ((b & 0xff) | ((g & 0xff) << 8) | ((r & 0xff) << 16));
 }
 
