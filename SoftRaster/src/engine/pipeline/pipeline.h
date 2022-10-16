@@ -33,6 +33,8 @@ public:
 
 private:
     void rasterizer(Vec4 &p0, Vec4 &p1, Vec4 &p2, const V2F &v0, const V2F &v1, const V2F &v2);
+
+    bool isCCW(const Vec4 &p0, const Vec4 &p1, const Vec4 &p2) const;
 };
 
 

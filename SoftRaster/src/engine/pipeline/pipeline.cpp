@@ -52,8 +52,6 @@ void Pipeline::drawMesh(const Mesh &mesh) {
         hsCache[1]->set(*vertexCtl->getGlPosition(i1));
         hsCache[2]->set(*vertexCtl->getGlPosition(i2));
 
-        // TODO 缺少背面剔除
-
         // 光栅化
         this->rasterizer(
                 *hsCache[0],
@@ -75,6 +73,11 @@ void Pipeline::rasterizer(Vec4 &p0, Vec4 &p1, Vec4 &p2, const V2F &v0, const V2F
     p0 = *(p0 / p0.w);
     p1 = *(p1 / p1.w);
     p2 = *(p2 / p2.w);
+
+    // 背面剔除测试
+    if(!isCCW(p0, p1, p2)){
+        return;
+    }
 
     // 计算三角形面积
     float s = cross(p1.x - p0.x, p1.y - p0.y, p2.x - p0.x, p2.y - p0.y) * 0.5;
@@ -132,4 +135,12 @@ void Pipeline::rasterizer(Vec4 &p0, Vec4 &p1, Vec4 &p2, const V2F &v0, const V2F
 
 void Pipeline::clear() {
     cameraTarget->clear();
+}
+
+bool Pipeline::isCCW(const Vec4 &p0, const Vec4 &p1, const Vec4 &p2) const {
+    float a = p1.x - p0.x;
+    float b = p1.y - p0.y;
+    float c = p2.x - p0.x;
+    float d = p2.y - p0.y;
+    return a * d - b * c < 0;
 }
